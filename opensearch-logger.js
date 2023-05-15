@@ -22,8 +22,10 @@ exports.logger = async function (options) {
 
 // Create an OpenSearch client
 const opensearchClient = new Client(opensearchConfig);
-// Example log object
+const currentTimestamp = new Date().toISOString();
+
 const logObject = {
+  timestamp: currentTimestamp,
   message: options.message,
   log_level: options.log_level,
   details: typeof options.details === 'object' ? options.details : { message_details: options.details },
