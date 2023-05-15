@@ -1,0 +1,90 @@
+[
+  {
+    "type": "opensearch_logger",
+    "module": "opensearch-logger",
+    "action": "logger",
+    "groupTitle": "Logging",
+    "groupIcon": "fas fa-lg fa-file-alt comp-exec",
+    "title": "Send Log to OpenSearch",
+    "icon": "fas fa-lg fa-terminal comp-exec",
+    "usedModules": {
+      "node": {
+        @opensearch-project/opensearch: "^1.2.0"
+      }
+    },
+    "properties": [
+      {
+        "group": "Log",
+        "variables": [
+          {
+            "name": "actionName",
+            "optionName": "name",
+            "title": "Name",
+            "type": "text",
+            "required": true,
+            "defaultValue": ""
+          },
+          {
+            "name": "message",
+            "optionName": "message",
+            "title": "Message",
+            "type": "text",
+            "required": true,
+            "defaultValue": "",
+            "serverDataBindings": true,
+            "help": "The log message"
+          },
+          {
+            "name": "details",
+            "optionName": "details",
+            "title": "Message Details",
+            "type": "text",
+            "required": false,
+            "defaultValue": "",
+            "serverDataBindings": true,
+            "help": "Additional details as a JSON object"
+          },
+          {
+            "name": "log_level",
+            "optionName": "log_level",
+            "title": "Log Level",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "The log level"
+          }
+        ]
+      },
+      {
+        "group": "Opensearch Config",
+        "variables": [
+          {
+            "name": "url",
+            "optionName": "url",
+            "title": "Instance URL",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "URL of the opensearch Instance eg: https://192.168.18.10:9200"
+          },
+          {
+            "name": "index",
+            "optionName": "index",
+            "title": "Index",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "Index name, eg: nodejs-logs"
+          },
+          {
+            "name": "ssl_check",
+            "optionName": "ssl_check",
+            "title": "SSL/TLS Insecure",
+            "type": "boolean",
+            "defaultValue": true
+          }
+        ]
+      }
+    ]
+  }
+]
