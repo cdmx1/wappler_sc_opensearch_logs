@@ -7,7 +7,7 @@ const opsPass = process.env.OPS_PASSWORD;
 
 exports.logger = async function (options) {
   const opensearchConfig = {
-    node: options.url || "http://localhost:9200",
+    node: this.parse(options.url) || "http://localhost:9200",
     auth: {
       username: opsUser,
       password: opsPass,
@@ -26,13 +26,13 @@ const currentTimestamp = new Date().toISOString();
 
 const logObject = {
   timestamp: currentTimestamp,
-  message: options.message,
-  log_level: options.log_level,
-  details: typeof options.details === 'object' ? options.details : { message_details: options.details },
+  message: this.parse(options.message),
+  log_level: this.parse(options.log_level),
+  details: typeof this.parse(options.details) === 'object' ? this.parse(options.details) : { message_details: this.parse(options.details) },
 };
 // Send logs to OpenSearch
 opensearchClient.index({
-  index: options.index || "nodejs-logs", // Index name to store logs
+  index: this.parse(options.index) || "nodejs-logs", // Index name to store logs
   body: logObject,
   refresh: true, // Optional: Set to true if you want the logs to be immediately searchable
 })
