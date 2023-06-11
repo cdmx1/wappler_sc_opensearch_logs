@@ -25,6 +25,51 @@
             "defaultValue": ""
           },
           {
+            "name": "timestamp",
+            "optionName": "timestamp",
+            "title": "Timestamp",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "Timestamp, ex: NOW_UTC,etc"
+          },
+          {
+            "name": "log_level",
+            "optionName": "log_level",
+            "title": "Log Level",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "The log level"
+          },
+          {
+            "name": "transaction_id",
+            "optionName": "transaction_id",
+            "title": "Transaction ID",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "The log level"
+          },
+          {
+            "name": "user_id",
+            "optionName": "user_id",
+            "title": "Action User ID",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "User ID from Provider"
+          },
+          {
+            "name": "user_email",
+            "optionName": "user_email",
+            "title": "Action User Email",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "User Email from Provider"
+          },
+          {
             "name": "message",
             "optionName": "message",
             "title": "Message",
@@ -35,24 +80,33 @@
             "help": "The log message"
           },
           {
-            "name": "details",
-            "optionName": "details",
-            "title": "Message Details",
+            "name": "domain",
+            "optionName": "domain",
+            "title": "Domain",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "Domain Name, ex: site.example.com etc"
+          },
+          {
+            "name": "service",
+            "optionName": "service",
+            "title": "Service",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "Service Type, ex: payments, etc"
+          },
+          {
+            "name": "context",
+            "optionName": "context",
+            "title": "Message Context",
             "type": "text",
             "required": false,
             "defaultValue": "",
             "serverDataBindings": true,
             "help": "Additional details as a JSON object"
           },
-          {
-            "name": "log_level",
-            "optionName": "log_level",
-            "title": "Log Level",
-            "type": "text",
-            "required": true,
-            "serverDataBindings": true,
-            "help": "The log level"
-          }
         ]
       },
       {

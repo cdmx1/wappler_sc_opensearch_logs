@@ -22,13 +22,18 @@ exports.logger = async function (options) {
 
 // Create an OpenSearch client
 const opensearchClient = new Client(opensearchConfig);
-const currentTimestamp = new Date().toISOString();
+// const currentTimestamp = new Date().toISOString();
 
 const logObject = {
-  timestamp: currentTimestamp,
-  message: this.parse(options.message),
+  timestamp: this.parse(options.timestamp),
   log_level: this.parse(options.log_level),
-  details: typeof this.parse(options.details) === 'object' ? this.parse(options.details) : { message_details: this.parse(options.details) },
+  transaction_id: this.parse(options.transaction_id) ? this.parse(options.transaction_id) :  "",
+  user_id: this.parse(options.user_id),
+  user_email: this.parse(options.user_email),
+  message: this.parse(options.message),
+  domain: this.parse(options.domain),
+  service: this.parse(options.service),
+  context: typeof this.parse(options.details) === 'object' ? this.parse(options.details) : { message_details: this.parse(options.details) },
 };
 // Send logs to OpenSearch
 opensearchClient.index({
