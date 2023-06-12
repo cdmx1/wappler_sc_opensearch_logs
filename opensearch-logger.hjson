@@ -45,11 +45,11 @@
           {
             "name": "log_id",
             "optionName": "log_id",
-            "title": "Transaction ID",
+            "title": "Log ID",
             "type": "text",
             "required": true,
             "serverDataBindings": true,
-            "help": "The log level"
+            "help": "The log ID for grouping events"
           },
           {
             "name": "user_id",
