@@ -27,7 +27,7 @@ const opensearchClient = new Client(opensearchConfig);
 const logObject = {
   timestamp: this.parse(options.timestamp),
   log_level: this.parse(options.log_level),
-  transaction_id: this.parse(options.transaction_id) ? this.parse(options.transaction_id) :  "",
+  log_id: this.parse(options.log_id) ? this.parse(options.log_id) :  "",
   user_id: this.parse(options.user_id),
   user_email: this.parse(options.user_email),
   message: this.parse(options.message),

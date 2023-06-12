@@ -43,8 +43,8 @@
             "help": "The log level"
           },
           {
-            "name": "transaction_id",
-            "optionName": "transaction_id",
+            "name": "log_id",
+            "optionName": "log_id",
             "title": "Transaction ID",
             "type": "text",
             "required": true,
