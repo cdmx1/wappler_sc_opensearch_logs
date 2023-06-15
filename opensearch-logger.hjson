@@ -140,5 +140,98 @@
         ]
       }
     ]
+  },
+  {
+    "type": "opensearch_query",
+    "module": "opensearch-query",
+    "action": "ops_query",
+    "groupTitle": "Logging",
+    "groupIcon": "fas fa-lg fa-file-alt comp-exec",
+    "title": "Fetch Logs from OpenSearch",
+    "icon": "fas fa-lg fa-table comp-exec",
+    "usedModules": {
+      "node": {
+        @opensearch-project/opensearch: "^1.2.0"
+      }
+    },
+    "properties": [
+      {
+        "group": "Log",
+        "variables": [
+          {
+            "name": "actionName",
+            "optionName": "name",
+            "title": "Name",
+            "type": "text",
+            "required": true,
+            "defaultValue": ""
+          },
+          {
+            "name": "query",
+            "optionName": "query",
+            "title": "Search Query",
+            "type": "text",
+            "serverDataBindings": true,
+            "help": "Search String"
+          },
+          {
+            "name": "field",
+            "optionName": "field",
+            "title": "Search Field",
+            "type": "text",
+            "serverDataBindings": true,
+            "help": "Search Field"
+          },
+          {
+            "name": "fromTimestamp",
+            "optionName": "fromTimestamp",
+            "title": "From Date",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "Timestamp, ex: NOW_UTC,etc"
+          },
+          {
+            "name": "toTimestamp",
+            "optionName": "toTimestamp",
+            "title": "To Date",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "Timestamp, ex: NOW_UTC,etc"
+          }
+        ]
+      },
+      {
+        "group": "Opensearch Config",
+        "variables": [
+          {
+            "name": "url",
+            "optionName": "url",
+            "title": "Instance URL",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "URL of the opensearch Instance eg: https://192.168.18.10:9200"
+          },
+          {
+            "name": "index",
+            "optionName": "index",
+            "title": "Index",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "Index name, eg: nodejs-logs"
+          },
+          {
+            "name": "ssl_check",
+            "optionName": "ssl_check",
+            "title": "SSL/TLS Insecure",
+            "type": "boolean",
+            "defaultValue": true
+          }
+        ]
+      }
+    ]
   }
 ]
