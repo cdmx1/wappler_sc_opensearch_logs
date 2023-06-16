@@ -107,6 +107,7 @@
             "serverDataBindings": true,
             "help": "Additional details as a JSON object"
           },
+          
         ]
       },
       {
@@ -129,6 +130,14 @@
             "required": true,
             "serverDataBindings": true,
             "help": "Index name, eg: nodejs-logs"
+          },
+          {
+            "name": "refresh",
+            "optionName": "refresh",
+            "title": "Refresh",
+            "type": "boolean",
+            "defaultValue": true,
+            "help": "Enable if you want the logs to be immediately searchable, Note: Enabling this option can potentially contribute to increased memory usage."
           },
           {
             "name": "ssl_check",

@@ -37,7 +37,7 @@ exports.logger = async function (options) {
   opensearchClient.index({
     index: this.parse(options.index) || "nodejs-logs", // Index name to store logs
     body: logObject,
-    refresh: true, // Optional: Set to true if you want the logs to be immediately searchable
+    refresh: this.parse(options.refresh) || false, // Optional: Set to true if you want the logs to be immediately searchable
   })
     .then(() => {
       console.log('Logs successfully sent to OpenSearch.');
