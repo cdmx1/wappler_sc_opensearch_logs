@@ -147,6 +147,12 @@
             "defaultValue": true
           }
         ]
+      },
+      {
+        group: 'Output',
+        variables: [
+          { name: 'output', optionName: 'output', title: 'Output', initValue: true, defaultValue: false, type: 'boolean'}
+        ]
       }
     ]
   },
@@ -239,6 +245,12 @@
             "type": "boolean",
             "defaultValue": true
           }
+        ]
+      },
+      {
+        group: 'Output',
+        variables: [
+          { name: 'output', optionName: 'output', title: 'Output', initValue: true, defaultValue: false, type: 'boolean'}
         ]
       }
     ]
