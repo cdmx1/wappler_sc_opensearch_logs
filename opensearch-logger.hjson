@@ -164,6 +164,7 @@
     "groupIcon": "fas fa-lg fa-file-alt comp-exec",
     "title": "Fetch Logs from OpenSearch",
     "icon": "fas fa-lg fa-table comp-exec",
+    "dataPickObject": true,
     "usedModules": {
       "node": {
         @opensearch-project/opensearch: "^1.2.0"
