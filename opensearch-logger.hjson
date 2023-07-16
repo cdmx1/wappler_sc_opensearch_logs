@@ -70,6 +70,15 @@
             "help": "User Email from Provider"
           },
           {
+            "name": "event_type",
+            "optionName": "event_type",
+            "title": "Event Type",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "Event Type or Action"
+          },
+          {
             "name": "message",
             "optionName": "message",
             "title": "Message",

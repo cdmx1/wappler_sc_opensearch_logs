@@ -28,6 +28,7 @@ exports.logger = async function (options) {
     log_id: this.parse(options.log_id) ? this.parse(options.log_id) : "",
     user_id: this.parse(options.user_id),
     user_email: this.parse(options.user_email),
+    event_type: this.parse(options.event_type),
     message: this.parse(options.message),
     domain: this.parse(options.domain),
     service: this.parse(options.service),
