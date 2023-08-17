@@ -43,13 +43,31 @@
             "help": "The log level"
           },
           {
-            "name": "log_id",
-            "optionName": "log_id",
-            "title": "Log ID",
+            "name": "e_id",
+            "optionName": "e_id",
+            "title": "ID",
             "type": "text",
             "required": true,
             "serverDataBindings": true,
-            "help": "The log ID for grouping events"
+            "help": "The ID for grouping events"
+          },
+          {
+            "name": "event",
+            "optionName": "event",
+            "title": "Event",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "Event Description"
+          },
+          {
+            "name": "e_type",
+            "optionName": "e_type",
+            "title": "Event Type",
+            "type": "text",
+            "required": true,
+            "serverDataBindings": true,
+            "help": "Type or Action Name of the event"
           },
           {
             "name": "user_id",
@@ -59,24 +77,6 @@
             "required": true,
             "serverDataBindings": true,
             "help": "User ID from Provider"
-          },
-          {
-            "name": "user_email",
-            "optionName": "user_email",
-            "title": "Action User Email",
-            "type": "text",
-            "required": true,
-            "serverDataBindings": true,
-            "help": "User Email from Provider"
-          },
-          {
-            "name": "event_type",
-            "optionName": "event_type",
-            "title": "Event Type",
-            "type": "text",
-            "required": true,
-            "serverDataBindings": true,
-            "help": "Event Type or Action"
           },
           {
             "name": "message",
@@ -98,13 +98,13 @@
             "help": "Domain Name, ex: site.example.com etc"
           },
           {
-            "name": "service",
-            "optionName": "service",
-            "title": "Service",
+            "name": "system",
+            "optionName": "system",
+            "title": "System",
             "type": "text",
             "required": true,
             "serverDataBindings": true,
-            "help": "Service Type, ex: payments, etc"
+            "help": "System Type, ex: nps, etc"
           },
           {
             "name": "context",

@@ -23,16 +23,16 @@ exports.logger = async function (options) {
   // Create an OpenSearch client
   const opensearchClient = new Client(opensearchConfig);
   const logObject = {
-    timestamp: this.parse(options.timestamp),
-    log_level: this.parse(options.log_level),
-    log_id: this.parse(options.log_id) ? this.parse(options.log_id) : "",
-    user_id: this.parse(options.user_id),
-    user_email: this.parse(options.user_email),
-    event_type: this.parse(options.event_type),
-    message: this.parse(options.message),
+    ts: this.parse(options.timestamp),
+    level: this.parse(options.log_level),
+    e_event: this.parse(options.event),
+    e_id: this.parse(options.e_id) ? this.parse(options.e_id) : "",
+    e_type: this.parse(options.e_type),
+    uid: this.parse(options.user_id),
+    msg: this.parse(options.message),
     domain: this.parse(options.domain),
-    service: this.parse(options.service),
-    context: typeof this.parse(options.context) === 'object' ? this.parse(options.context) : { data: this.parse(options.context) },
+    sys: this.parse(options.system),
+    aux: typeof this.parse(options.context) === 'object' ? this.parse(options.context) : { data: this.parse(options.context) },
   };
   // Send logs to OpenSearch
   opensearchClient.index({

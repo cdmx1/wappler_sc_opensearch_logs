@@ -1,12 +1,12 @@
 {
-    "name": "@roney492/wappler_sc_opensearch_logs",
-    "version": "0.0.2",
+    "name": "@cdmx/wappler_sc_opensearch_logs",
+    "version": "1.0.0",
     "type": "module",
     "description": "Opensearch log service",
     "license": "MIT",
     "author": {
-        "name": "roney492",
-        "url": "https://github.com/roney492"
+        "name": "cdmx1",
+        "url": "https://github.com/cdmx1"
     },
     "keywords": [
         "wappler-extension",
