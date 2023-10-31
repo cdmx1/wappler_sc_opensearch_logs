@@ -6,7 +6,7 @@ const opsPass = process.env.OPS_PASSWORD;
 const opsUrl = process.env.OPS_URL;
 
 exports.ops_query = async function (options) {
-  
+  const timestampField = this.parse(options.timestampField) || '@timestamp';
   const opensearchConfig = {
     node: opsUrl,
     auth: {
@@ -39,7 +39,7 @@ exports.ops_query = async function (options) {
           (options.fromTimestamp && options.toTimestamp
             ? {
               range: {
-                '@timestamp': {
+                [timestampField]: {
                   gte: this.parse(options.fromTimestamp),
                   lte: this.parse(options.toTimestamp),
                 },

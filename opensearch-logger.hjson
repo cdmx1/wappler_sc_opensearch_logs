@@ -216,6 +216,16 @@
             "help": "Output Fields to be fetched"
           },
           {
+            "name": "timestampField",
+            "optionName": "timestampField",
+            "title": "Timestamp Field",
+            "type": "text",
+            "required": false,
+            "serverDataBindings": true,
+            "defaultValue": "@timestamp"
+            "help": "Timestamp field, ex: @timestamp, ts, etc"
+          },
+          {
             "name": "fromTimestamp",
             "optionName": "fromTimestamp",
             "title": "From Date",
