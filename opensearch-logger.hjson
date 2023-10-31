@@ -194,7 +194,7 @@
           {
             "name": "query",
             "optionName": "query",
-            "title": "Search Query",
+            "title": "Search Value",
             "type": "text",
             "serverDataBindings": true,
             "help": "Search String"
@@ -208,11 +208,19 @@
             "help": "Search Field"
           },
           {
+            "name": "output_fields",
+            "optionName": "output_fields",
+            "title": "Output Fields",
+            "type": "text",
+            "serverDataBindings": true,
+            "help": "Output Fields to be fetched"
+          },
+          {
             "name": "fromTimestamp",
             "optionName": "fromTimestamp",
             "title": "From Date",
             "type": "text",
-            "required": true,
+            "required": false,
             "serverDataBindings": true,
             "help": "Timestamp, ex: NOW_UTC,etc"
           },
@@ -221,7 +229,7 @@
             "optionName": "toTimestamp",
             "title": "To Date",
             "type": "text",
-            "required": true,
+            "required": false,
             "serverDataBindings": true,
             "help": "Timestamp, ex: NOW_UTC,etc"
           }
@@ -230,15 +238,6 @@
       {
         "group": "Opensearch Config",
         "variables": [
-          {
-            "name": "url",
-            "optionName": "url",
-            "title": "Instance URL",
-            "type": "text",
-            "required": true,
-            "serverDataBindings": true,
-            "help": "URL of the opensearch Instance eg: https://192.168.18.10:9200"
-          },
           {
             "name": "index",
             "optionName": "index",

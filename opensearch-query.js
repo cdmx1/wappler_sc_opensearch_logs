@@ -3,10 +3,12 @@ const { Client } = require('@opensearch-project/opensearch');
 
 const opsUser = process.env.OPS_USERNAME;
 const opsPass = process.env.OPS_PASSWORD;
+const opsUrl = process.env.OPS_URL;
 
 exports.ops_query = async function (options) {
+  
   const opensearchConfig = {
-    node: this.parse(options.url) || 'http://localhost:9200',
+    node: opsUrl,
     auth: {
       username: opsUser,
       password: opsPass,
@@ -29,21 +31,21 @@ exports.ops_query = async function (options) {
           // Remove the match part if options.field or options.query is missing
           options.field && options.query
             ? {
-                match: {
-                  [this.parse(options.field)]: {
-                    query: this.parse(options.query),
-                  },
-                },
-              }
-            : undefined,
-          {
-            range: {
-              timestamp: {
-                gte: this.parse(options.fromTimestamp),
-                lte: this.parse(options.toTimestamp),
+              match_phrase: {
+                [this.parse(options.field)]: this.parse(options.query),
               },
-            },
-          },
+            }
+            : undefined,
+          (options.fromTimestamp && options.toTimestamp
+            ? {
+              range: {
+                '@timestamp': {
+                  gte: this.parse(options.fromTimestamp),
+                  lte: this.parse(options.toTimestamp),
+                },
+              },
+            }
+            : undefined),
         ].filter(Boolean), // Filter out undefined values
       },
     },
@@ -52,11 +54,13 @@ exports.ops_query = async function (options) {
   try {
     const initialResponse = await opensearchClient.search({
       index: indexName,
+      ...(options.output_fields
+        ? { _source: this.parse(options.output_fields).split(',') }
+        : {}),
       scroll: '1m', // Set the scroll time
       size: 1000, // Set an initial batch size
       body: body,
     });
-  
     let hits = initialResponse.body.hits.hits.map(hit => hit._source);
     let scrollId = initialResponse.body._scroll_id;
   
