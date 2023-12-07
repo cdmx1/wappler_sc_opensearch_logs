@@ -216,6 +216,27 @@
             "help": "Output Fields to be fetched"
           },
           {
+            "name": "sortField",
+            "optionName": "sort_field",
+            "title": "Sort Field",
+            "type": "text",
+            "serverDataBindings": true,
+            "help": "Filed for sorting in descending order."
+          },
+          {
+            "name": "sortOrder",
+            "optionName": "sort_order",
+            "title": "Sort Order",
+            "type": "droplist",
+            "defaultValue": 'desc',
+            "values": [
+            {title: 'Descending', value: 'desc'},
+            {title: 'Ascending', value: 'asc'}
+            ],
+            "serverDataBindings": true,
+            "help": "Filed for setting sort order."
+          },
+          {
             "name": "timestampField",
             "optionName": "timestampField",
             "title": "Timestamp Field",

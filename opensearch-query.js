@@ -7,6 +7,8 @@ const opsUrl = process.env.OPS_URL;
 
 exports.ops_query = async function (options) {
   const timestampField = this.parse(options.timestampField) || '@timestamp';
+  const sortField = this.parse(options.sort_field);
+  const sortOrder = this.parse(options.sort_order) || 'desc';
   const opensearchConfig = {
     node: opsUrl,
     auth: {
@@ -31,24 +33,27 @@ exports.ops_query = async function (options) {
           // Remove the match part if options.field or options.query is missing
           options.field && options.query
             ? {
-              match_phrase: {
-                [this.parse(options.field)]: this.parse(options.query),
-              },
-            }
-            : undefined,
-          (options.fromTimestamp && options.toTimestamp
-            ? {
-              range: {
-                [timestampField]: {
-                  gte: this.parse(options.fromTimestamp),
-                  lte: this.parse(options.toTimestamp),
+                match_phrase: {
+                  [this.parse(options.field)]: this.parse(options.query),
                 },
-              },
-            }
-            : undefined),
-        ].filter(Boolean), // Filter out undefined values
+              }
+            : undefined,
+          options.fromTimestamp && options.toTimestamp
+            ? {
+                range: {
+                  [timestampField]: {
+                    gte: this.parse(options.fromTimestamp),
+                    lte: this.parse(options.toTimestamp),
+                  },
+                },
+              }
+            : undefined,
+        ].filter(Boolean), 
       },
     },
+    sort: sortField // Include sorting outside the query
+      ? [{ [sortField]: sortOrder }]
+      : undefined,
   };
   
   try {
