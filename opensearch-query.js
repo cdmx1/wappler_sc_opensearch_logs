@@ -48,6 +48,13 @@ exports.ops_query = async function (options) {
                 },
               }
             : undefined,
+            options.is_note ? 
+            {
+              term: {
+                is_note: this.parse(options.is_note),
+              },
+            }
+            : undefined,
         ].filter(Boolean), 
       },
     },

@@ -32,6 +32,7 @@ exports.logger = async function (options) {
     message: this.parse(options.message),
     domain: this.parse(options.domain),
     service: this.parse(options.service),
+    is_note: this.parse(options.is_note) || false,
     context: typeof this.parse(options.context) === 'object' ? this.parse(options.context) : { data: this.parse(options.context) },
   };
   // Send logs to OpenSearch

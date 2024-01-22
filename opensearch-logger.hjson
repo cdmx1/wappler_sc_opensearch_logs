@@ -9,7 +9,7 @@
     "icon": "fas fa-lg fa-terminal comp-exec",
     "usedModules": {
       "node": {
-        @opensearch-project/opensearch: "^1.2.0"
+        @opensearch-project/opensearch: "^2.5.0"
       }
     },
     "properties": [
@@ -105,6 +105,14 @@
             "required": true,
             "serverDataBindings": true,
             "help": "Service Type, ex: payments, etc"
+          },
+          {
+            "name": "isNote",
+            "optionName": "is_note",
+            "title": "Is Note",
+            "type": "boolean",
+            "required": false,
+            "defaultValue": false
           },
           {
             "name": "context",
@@ -263,6 +271,14 @@
             "required": false,
             "serverDataBindings": true,
             "help": "Timestamp, ex: NOW_UTC,etc"
+          },
+          {
+            "name": "isNote",
+            "optionName": "is_note",
+            "title": "Is Note",
+            "type": "boolean",
+            "required": false,
+            "defaultValue": false
           }
         ]
       },
